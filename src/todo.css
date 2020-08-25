@@ -1,12 +1,13 @@
 .todo-div{
     padding: 10px;
     font-size: 1.2em;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Arial, Helvetica, sans-serif';
 }
 
 .todo-div h1{
     margin-bottom: 20px;
     font-size: 2.4em;
+    margin-top: 0;
 }
 
 .todo-div .inputField{
@@ -20,6 +21,7 @@
     border: 1px solid #ccc;
     background: #ececec;
     margin-left: 10px;
+    margin-top: 20px;
 }
 
 .todo-div ul{
@@ -31,7 +33,13 @@
 .todo-div ul li{
     border-bottom: 1px solid #ececec;
     padding: 10px 0px;
+    font-weight: normal;
 }
 .todo-div .chkBox{
     margin-right: 10px;
+}
+
+.todo-div li.isChecked-true{
+    text-decoration: line-through;
+    color: #999;
 }

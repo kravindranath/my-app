@@ -1,17 +1,25 @@
 import React from 'react';
 
 function Todos(props) {
-    var data = props.todos || [],
+    var data = props.todos || [{}],
     markup = [];
+
     data.forEach((elem) => {
-        return (
-            markup.push(
-            <li key={elem.id}>
-                <input type="checkbox" className="chkBox" />
+        console.log(elem)
+        if(!(elem.id || elem.status)) return;
+        var isChecked = (elem.status === true) ? true : null;
+        markup.push(
+            <li key={elem.id} className={`isChecked-${isChecked}`}>
+                <input ref={React.createRef()}
+                    name={elem.id}
+                    type="checkbox"
+                    className="chkBox"
+                    onClick={props.onClickChkBox}
+                    value={elem.id}
+                    defaultChecked={isChecked} />
                 {elem.name}
             </li>
-            )
-        );
+        )
     });
 
     return (
