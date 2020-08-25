@@ -2,12 +2,13 @@ import React from 'react';
 
 function Todos(props) {
     var data = props.todos || [{}],
-    markup = [];
+        markup = [];
 
     data.forEach((elem) => {
-        console.log(elem)
-        if(!(elem.id || elem.status)) return;
+
+        if (!(elem.id || elem.status)) return;
         var isChecked = (elem.status === true) ? true : null;
+
         markup.push(
             <li key={elem.id} className={`isChecked-${isChecked}`}>
                 <input ref={React.createRef()}
@@ -24,7 +25,7 @@ function Todos(props) {
 
     return (
         <ul>
-           {markup}
+            {markup}
         </ul>
     );
 }
