@@ -39,7 +39,7 @@ function AppNew(){
 
     return(
         <div>
-            <h1>Password Helper</h1>
+            <h1>Password Strength</h1>
             <div className={`pwd-helper ${pwdSt.pwd}`}>
                 <input onChange={onChangeHandler} ref={inpRef} className="inputField" placeholder="Type a strong password" />
             </div>
