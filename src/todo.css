@@ -43,3 +43,10 @@
     text-decoration: line-through;
     color: #999;
 }
+
+.separator{
+    background: #333;
+    height: 1px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

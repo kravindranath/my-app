@@ -1,0 +1,32 @@
+.pwd-helper{
+    width: 300px;
+    transition: border .5s ease-in-out;
+}
+
+.pwd-helper .inputField{
+    padding: 10px;
+    width: 278px;
+    border: 1px solid #ccc;
+    border-bottom: 0;
+    outline: 0;
+}
+.pwd-helper button{
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    background: #ececec;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+.pwd-helper .chkBox{
+    margin-right: 10px;
+}
+
+.pwd-helper.strong{
+    border-bottom: 5px solid green;
+}
+.pwd-helper.medium{
+    border-bottom: 5px solid orange;
+}
+.pwd-helper.weak{
+    border-bottom: 5px solid red;
+}
