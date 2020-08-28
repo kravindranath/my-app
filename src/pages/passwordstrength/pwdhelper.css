@@ -1,0 +1,43 @@
+
+.pwd-helper{
+    width: 300px;
+    display: flex;
+    transition: border .5s ease-in-out;
+    flex-direction: row;
+    align-content: unset;
+    background: #f9f9f9;
+}
+
+.pwd-helper .inputField{
+    padding: 10px;
+    width: 280px;
+    border: 0;
+    outline: 0;
+}
+.pwd-helper .stglbl{
+    padding: 10px;
+    display: block;
+    text-transform: uppercase;
+    font-size: 0.8em;
+    color: gray;
+    width: 100px;
+    text-align: center;
+    background: none;
+}
+.pwd-helper .chkBox{
+    margin-right: 10px;
+}
+
+.pwd-helper.strong{
+    border-bottom: 5px solid green;
+}
+.pwd-helper.medium{
+    border-bottom: 5px solid orange;
+}
+.pwd-helper.weak{
+    border-bottom: 5px solid red;
+}
+
+.pwd-helper{
+    border-bottom: 5px solid gray;
+}

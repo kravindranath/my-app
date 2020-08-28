@@ -1,0 +1,38 @@
+body{
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2em;
+}
+
+.default-list ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 20px;
+}
+.default-list ul li{
+    border-bottom: 1px solid #ececec;
+    padding: 10px 0px;
+    font-weight: normal;
+}
+
+.default-list ul li a{
+    color: #333;
+    text-decoration: none;
+}
+.default-list ul li a:hover{
+    text-decoration: underline;
+}
+
+.inputField{
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ccc;
+}
+
+.defButton{
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    background: #ececec;
+    margin-left: 10px;
+    margin-top: 20px;
+}

@@ -1,0 +1,20 @@
+.todo-div h1{
+    padding: 10px;
+    margin: 10px;
+}
+
+.todo-div .chkBox{
+    margin-right: 10px;
+}
+
+.todo-div li.isChecked-true{
+    text-decoration: line-through;
+    color: #999;
+}
+
+.separator{
+    background: #333;
+    height: 1px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

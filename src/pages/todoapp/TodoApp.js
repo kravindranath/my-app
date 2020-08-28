@@ -1,13 +1,16 @@
 import React from 'react';
-import './todo.css'
 import { v4 as uuidv4 } from 'uuid';
 import _get from 'lodash/get'
 import _cloneDeep from 'lodash/cloneDeep'
 import _map from 'lodash/map'
 import _remove from 'lodash/remove'
+import _filter from 'lodash/filter'
 import Todos from './Todos'
 
-class App extends React.Component {
+import '../../css/main.css';
+import './todo.css';
+
+class TodoApp extends React.Component {
 
 	constructor(props) {
 		super(props)
@@ -99,21 +102,24 @@ class App extends React.Component {
 
 	render() {
 		var todoState = this.state || {},
-			totalTodos = todoState.todos.length || 0;
+			totalTodos = todoState.todos || [],
+			completedTodos = _filter(todoState.todos, (e) => { return e.status === false; }) || [],
+			showLabel = `${completedTodos.length || 0}/${totalTodos.length || 0}`;
+
 		return (
 			<div className="todo-div">
 				<h1>To do list</h1>
 				<input ref={this.textInput} className="inputField" placeholder="Add something to-do" />
-				<button onClick={this.onClickAdd}>Add</button>
-				<button onClick={this.onClickClear}>Clear</button>
+				<button className="defButton" onClick={this.onClickAdd}>Add</button>
+				<button className="defButton" onClick={this.onClickClear}>Clear</button>
 				<div>
 					<Todos todos={this.state.todos} onClickChkBox={this.onClickChkBox.bind(this)} />
 				</div>
-				<p>Showing {totalTodos} to-do's</p>
+				<p>Showing {showLabel} to-do's</p>
 			</div>
 		)
 
 	};
 }
 
-export default App;
+export default TodoApp;

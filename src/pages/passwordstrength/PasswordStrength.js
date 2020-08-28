@@ -1,7 +1,8 @@
 import React, { useState, useRef } from 'react';
+import '../../css/main.css';
 import './pwdhelper.css';
 
-function AppNew(){
+function PasswordStrength(){
 
     const calculateStrength = (_val) => {
         var val     = _val || '';
@@ -23,16 +24,16 @@ function AppNew(){
     }
 
     var initialState = {
-        pwd: 'weak',
+        strength: '----',
         value: ''
     };
 
-    let [pwdSt, setState ] = useState(initialState);
+    let [currState, setState ] = useState(initialState);
 
     const onChangeHandler = () => {
         var val = inpRef.current.value;
         var strength = calculateStrength(val);
-        setState({ pwd: strength, value: val });
+        setState({ strength: strength, value: val });
     };
 
     let inpRef  = useRef(null);
@@ -40,11 +41,12 @@ function AppNew(){
     return(
         <div>
             <h1>Password Strength</h1>
-            <div className={`pwd-helper ${pwdSt.pwd}`}>
+            <div className={`pwd-helper ${currState.strength}`}>
                 <input onChange={onChangeHandler} ref={inpRef} className="inputField" placeholder="Type a strong password" />
+                <div className="stglbl">{currState.strength}</div>
             </div>
         </div>
     );
 }
 
-export default AppNew;
+export default PasswordStrength;
