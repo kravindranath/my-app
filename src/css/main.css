@@ -42,7 +42,7 @@ body{
     border-right: 1px solid #ccc;
     display: flex;
     flex-direction: row;
-    height: calc(100vw);
+    height: calc(100vh);
     position: absolute;
 }
 .main{
