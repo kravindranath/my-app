@@ -10,13 +10,21 @@ import ToggleButton from './components/ToggleButton';
 function RoutesIndex(props) {
 
     const mode = props.mode,
-        toggleMode = props.toggleMode;
+        toggleMode = props.toggleMode,
+        showHideNav = props.showHideNav,
+        navToggle = props.navToggle;
 
     return (
         <Router>
-            <nav className={`nav ${mode}`}>
+            <ToggleButton className="toggleButton" mode={mode} onClickHandle={toggleMode} />
+            <nav className={`nav ${mode} ${showHideNav}`}>
+                <div className="showHide" onClick={navToggle}>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
                 <div className="default-list">
-                    <ToggleButton className="toggleButton" mode={mode} onClickHandle={toggleMode} />
+
                     <ul>
                         <li>
                             <Link to="/">Home</Link>

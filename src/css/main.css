@@ -84,10 +84,21 @@ body.light a{
     position: absolute;
     font-size: 0.8em;
     padding: 10px;
+    background: #fff;
+}
+
+.nav .default-list ul{
+    margin-top: 0;
 }
 
 .dark .nav{
     border-right: 1px solid #666;
+    background: none;
+}
+
+.dark .nav.show{
+    border-right: 1px solid #666;
+    background: #222;
 }
 
 .main{
@@ -106,20 +117,23 @@ body.light a{
     border-radius: 15px;
     text-indent: -666px;
     overflow: hidden;
+    position: absolute;
+    right: 10px;
+    top: 10px;
 }
 .toggleButton span.switch{
     display: block;
     width: 20px;
     height: 20px;
+    border-radius: 15px;
     margin-top: -1px;
     margin-left: -1px;
-    border-radius: 15px;
     border: 1px solid #fff;
     position: absolute;
 }
 .light .toggleButton span.switch{
     border: 1px solid #aaa;
-    background: #aaa;
+    background: #fff;
 }
 .dark .toggleButton span.switch{
     margin-left: 20px;
@@ -138,4 +152,55 @@ body.light a{
 .light .toggleButton{
     background: #ededed;
     border: 1px solid #ddd;
+}
+
+.showHide {
+    width: 25px;
+    height: 25px;
+    overflow: hidden;
+    padding: 0;
+    display: block;
+    position: absolute;
+    top: 10px;
+    left: 9px;
+}
+
+.showHide span{
+    width: 100%;
+    display: block;
+    margin-bottom: 5px;
+    height: 4px;
+}
+.light .showHide span{
+    background: #ccc;
+}
+
+.dark .showHide span{
+    background: #666;
+}
+
+@media only screen and (min-width: 480px) {
+    .showHide{
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 0px) and (max-width: 480px) {
+    .main{
+        margin: 0 20px 20px 20px;
+    }
+    .nav .default-list {
+        margin-top: 20px;
+    }
+    .nav.hide{
+        width: 50px;
+        padding: 0;
+        border: 0;
+    }
+    .nav.hide ul{
+        display: none;
+    }
+    .nav.show{
+        width: 150px;
+    }
 }

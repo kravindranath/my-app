@@ -6,7 +6,7 @@ function ToggleButton (props) {
     const mode = props.mode || 'light',
         onClickHandle = props.onClickHandle,
         className = `${mode} ${props.className}`,
-        switchClassName = `${mode} switch`
+        switchClassName = `switch`
         ;
 
     return (
