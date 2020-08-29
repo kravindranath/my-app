@@ -1,11 +1,29 @@
 body{
     font-family: 'Roboto', sans-serif;
     font-size: 1.2em;
+    margin: 0;
+    padding: 0;
+}
+
+body.light{
+    background: white;
+    color: #000;
+}
+body.dark{
+    color: #ccc;
+    background: #222;
+}
+body.dark a{
+    color: #ccc;
+}
+
+body.light a{
+    color: #000;
 }
 
 .default-list ul{
     list-style-type: none;
-    margin: 0;
+    margin: 10px 0 0 0;
     padding: 0;
     margin-bottom: 20px;
 }
@@ -15,8 +33,11 @@ body{
     font-weight: normal;
 }
 
+.dark .default-list ul li{
+    border-bottom: 1px solid #666;
+}
+
 .default-list ul li a{
-    color: #333;
     text-decoration: none;
 }
 .default-list ul li a:hover{
@@ -27,6 +48,15 @@ body{
     padding: 10px;
     width: 300px;
     border: 1px solid #ccc;
+    background: none;
+    font-size: 1em;
+}
+
+.dark .inputField{
+    color: #ccc;
+}
+.light .inputField{
+    color: #000;
 }
 
 .defButton{
@@ -37,15 +67,68 @@ body{
     margin-top: 20px;
 }
 
-.mainNav{
-    width: 200px;
+.nav{
+    width: 150px;
     border-right: 1px solid #ccc;
     display: flex;
     flex-direction: row;
     height: calc(100vh);
     position: absolute;
+    font-size: 0.8em;
+
+    padding: 10px;
 }
+
+.dark .nav{
+    border-right: 1px solid #666;
+}
+
 .main{
-    margin-left: 200px;
-    padding: 20px;
+    margin-left: 16%;
+    padding: 2%;
+}
+
+.main h1{
+    padding: 10px;
+    margin: 10px;
+}
+
+.toggleButton{
+    width: 40px;
+    height: 20px;
+    border-radius: 15px;
+    text-indent: -666px;
+    overflow: hidden;
+}
+.toggleButton span.switch{
+    display: block;
+    width: 20px;
+    height: 20px;
+    margin-top: -1px;
+    margin-left: -1px;
+    border-radius: 15px;
+    border: 1px solid #fff;
+    position: absolute;
+}
+.light .toggleButton span.switch{
+    border: 1px solid #aaa;
+    background: #aaa;
+}
+.dark .toggleButton span.switch{
+    margin-left: 20px;
+}
+
+.dark .toggleButton{
+    background: #222;
+    border: 1px solid #666;
+}
+
+.dark .toggleButton span.switch{
+    background: orange;
+    border: 1px solid #b58c42;
+}
+
+.light .toggleButton{
+    background: #ededed;
+    border: 1px solid #ddd;
 }

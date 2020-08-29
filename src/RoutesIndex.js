@@ -5,12 +5,18 @@ import './css/main.css';
 import TodoApp from './pages/todoapp/TodoApp';
 import PasswordStrength from './pages/passwordstrength/PasswordStrength';
 import Home from './pages/home';
+import ToggleButton from './components/ToggleButton';
 
-function RoutesIndex() {
+function RoutesIndex(props) {
+
+    const mode = props.mode,
+        toggleMode = props.toggleMode;
+
     return (
         <Router>
-            <nav className="mainNav">
+            <nav className={`nav ${mode}`}>
                 <div className="default-list">
+                    <ToggleButton className="toggleButton" mode={mode} onClickHandle={toggleMode} />
                     <ul>
                         <li>
                             <Link to="/">Home</Link>
@@ -24,7 +30,7 @@ function RoutesIndex() {
                     </ul>
                 </div>
             </nav>
-            <section className="main">
+            <section className={`main ${mode}`}>
                 <Switch>
                     <Route path="/pages/passwordstrength">
                         <PasswordStrength />
