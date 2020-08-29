@@ -76,6 +76,10 @@ class TodoApp extends React.Component {
 		this.updateLocalStorage(newTodos);
 	}
 
+	stripHtml(str){
+		return str.replace(/(<([^>]+)>)/gi, "");
+	}
+
 	onClickClear() {
 		var todos = this.state.todos || [];
 
@@ -89,10 +93,10 @@ class TodoApp extends React.Component {
 		this.updateTodosState(inputVal);
 	}
 
-	onClickAdd(e) {
+	onClickAdd() {
 		var inputVal = _get(this, 'textInput.current.value', ''),
 			currTodos = _cloneDeep(this.state.todos),
-			todo = this.createTodo(inputVal);
+			todo = inputVal && this.createTodo(this.stripHtml(inputVal));
 
 		if (todo) {
 			currTodos.push(todo);
@@ -112,9 +116,7 @@ class TodoApp extends React.Component {
 				<input ref={this.textInput} className="inputField" placeholder="Add something to-do" />
 				<button className="defButton" onClick={this.onClickAdd}>Add</button>
 				<button className="defButton" onClick={this.onClickClear}>Clear</button>
-				<div>
-					<Todos todos={this.state.todos} onClickChkBox={this.onClickChkBox.bind(this)} />
-				</div>
+				<Todos todos={this.state.todos} onClickChkBox={this.onClickChkBox.bind(this)} />
 				<p>Showing {showLabel} to-do's</p>
 			</div>
 		)

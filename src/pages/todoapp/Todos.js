@@ -24,9 +24,11 @@ function Todos(props) {
     });
 
     return (
-        <ul>
-            {markup}
-        </ul>
+        <div className="default-list">
+            <ul>
+                {markup}
+            </ul>
+        </div>
     );
 }
 
