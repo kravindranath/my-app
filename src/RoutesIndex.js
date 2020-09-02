@@ -7,6 +7,19 @@ import PasswordStrength from './pages/passwordstrength/PasswordStrength';
 import Home from './pages/home';
 import ToggleButton from './components/ToggleButton';
 
+
+function HamburgerMenu(props) {
+    var navToggle = props.navToggle;
+
+    return(
+        <div className="showHide" onClick={navToggle}>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    )
+}
+
 function RoutesIndex(props) {
 
     const mode = props.mode,
@@ -17,12 +30,8 @@ function RoutesIndex(props) {
     return (
         <Router>
             <ToggleButton className="toggleButton" mode={mode} onClickHandle={toggleMode} />
+            <HamburgerMenu navToggle={navToggle} />
             <nav className={`nav ${mode} ${showHideNav}`}>
-                <div className="showHide" onClick={navToggle}>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
                 <div className="default-list">
 
                     <ul>

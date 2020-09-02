@@ -26,7 +26,6 @@ function RenderBody() {
   return (
     <React.StrictMode>
       <>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
         <RoutesIndex mode={theme.mode} toggleMode={toggleMode} showHideNav={currNav.nav}
 navToggle={navToggle} />
       </>
