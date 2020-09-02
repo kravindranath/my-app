@@ -21,6 +21,7 @@ body.light a{
     color: #000;
 }
 
+/* --- default lists and buttons --- */
 .default-list ul{
     list-style-type: none;
     margin: 10px 0 0 0;
@@ -65,8 +66,6 @@ body.light a{
     padding: 10px 20px;
     border: 1px solid #ccc;
     background: #ececec;
-    margin-left: 10px;
-    margin-top: 20px;
 }
 
 .dark .defButton{
@@ -75,6 +74,9 @@ body.light a{
     color: #ccc;
 }
 
+/* --- end default lists and buttons --- */
+
+/* --- Main navigation --- */
 .nav{
     width: 150px;
     border-right: 1px solid #ddd;
@@ -108,16 +110,47 @@ body.light a{
     box-shadow: 0 0 5px #ececec;
 }
 
+.showHide {
+    width: 25px;
+    height: 25px;
+    overflow: hidden;
+    padding: 0;
+    display: block;
+    position: absolute;
+    top: 10px;
+    left: 9px;
+    z-index: 1;
+}
+.showHide span{
+    width: 100%;
+    display: block;
+    margin-bottom: 5px;
+    height: 3px;
+}
+.light .showHide span{
+    background: #ccc;
+}
+
+.dark .showHide span{
+    background: #666;
+}
+
+/* --- end navigation --- */
+
+/* --- Main --- */
 .main{
-    margin-left: 16%;
+    margin-left: 170px;
     padding: 2%;
 }
 
 .main h1{
-    padding: 10px;
-    margin: 10px;
+    padding: 10px 10px 10px 0;
+    margin: 10px 10px 10px 0;
 }
 
+/* --- end main --- */
+
+/* --- Button --- */
 .toggleButton{
     width: 50px;
     height: 20px;
@@ -149,56 +182,31 @@ body.light a{
 .dark .toggleButton span.switch{
     margin-left: 20px;
 }
-
 .dark .toggleButton{
     color: #333;
     background: #222;
     border: 1px solid #555;
     box-shadow: inset 0 0 5px #333;
 }
-
 .dark .toggleButton span.switch{
     background: #fff;
     border: 1px solid #f9f9f9;
 }
-
 .light .toggleButton{
     background: #ececec;
     border: 1px solid #ccc;
 }
 
-.showHide {
-    width: 25px;
-    height: 25px;
-    overflow: hidden;
-    padding: 0;
-    display: block;
-    position: absolute;
-    top: 10px;
-    left: 9px;
-    z-index: 1;
-}
+/* --- end button --- */
 
-.showHide span{
-    width: 100%;
-    display: block;
-    margin-bottom: 5px;
-    height: 3px;
-}
-.light .showHide span{
-    background: #ccc;
-}
-
-.dark .showHide span{
-    background: #666;
-}
-
+/* --- Media queries tablets and desktops --- */
 @media only screen and (min-width: 480px) {
     .showHide{
         display: none;
     }
 }
 
+/* --- Media queries mobile --- */
 @media only screen and (min-width: 0px) and (max-width: 480px) {
     .main{
         margin: 2em 20px 20px 20px;
@@ -218,3 +226,5 @@ body.light a{
         width: 150px;
     }
 }
+
+/* --- end mobile --- */

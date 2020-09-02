@@ -5,6 +5,7 @@
     transition: border .5s ease-in-out;
     flex-direction: row;
     align-content: unset;
+    background: #f5f5f5;
 }
 
 .pwd-helper .inputField{
