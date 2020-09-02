@@ -1,5 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+Netlify : https://thirsty-saha-983bd1.netlify.app/pages/todoapp
+
 Simple to-do list app
 
 ## Available Scripts
