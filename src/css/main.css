@@ -89,6 +89,14 @@ body.light a{
     top: 0;
     left: 0;
     z-index: 1;
+    transition: left 0.3s ease-in-out;
+}
+
+.nav.show{
+    left: 0;
+}
+.nav.hide{
+    left: -150px;
 }
 
 .nav .default-list ul{

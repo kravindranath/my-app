@@ -13,6 +13,7 @@
     width: 280px;
     border: 0;
     outline: 0;
+    font-size: 0.8em;
 }
 .pwd-helper .stglbl{
     padding: 10px;
@@ -28,15 +29,22 @@
 }
 
 .pwd-helper.strong{
-    border-bottom: 5px solid green;
+    border-bottom: 5px solid green !important;
 }
 .pwd-helper.medium{
-    border-bottom: 5px solid orange;
+    border-bottom: 5px solid orange !important;
 }
 .pwd-helper.weak{
-    border-bottom: 5px solid red;
+    border-bottom: 5px solid red !important;
 }
 
 .pwd-helper{
-    border-bottom: 5px solid gray;
+    border-bottom: 5px solid gray !important;
+}
+.dark .pwd-helper{
+    background: none;
+}
+
+.dark .pwd-helper{
+    border: 1px solid #666;
 }
