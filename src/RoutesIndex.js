@@ -1,11 +1,11 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './css/main.css';
 
 import TodoApp from './pages/todoapp/TodoApp';
 import PasswordStrength from './pages/passwordstrength/PasswordStrength';
-import Home from './pages/home';
 import ToggleButton from './components/ToggleButton';
+import IndexPage from './IndexPage';
 
 
 function HamburgerMenu(props) {
@@ -32,20 +32,7 @@ function RoutesIndex(props) {
             <ToggleButton className="toggleButton" mode={mode} onClickHandle={toggleMode} />
             <HamburgerMenu navToggle={navToggle} />
             <nav className={`nav ${mode} ${showHideNav}`}>
-                <div className="default-list">
-
-                    <ul>
-                        <li>
-                            <Link to="/">Home</Link>
-                        </li>
-                        <li>
-                            <Link to="/pages/passwordstrength">Password Strength</Link>
-                        </li>
-                        <li>
-                            <Link to="/pages/todoapp">Todo App</Link>
-                        </li>
-                    </ul>
-                </div>
+                <IndexPage skipDesc={true} />
             </nav>
             <section className={`main ${mode}`}>
                 <Switch>
@@ -56,7 +43,7 @@ function RoutesIndex(props) {
                         <TodoApp />
                     </Route>
                     <Route exact path="/">
-                        <Home />
+                        <IndexPage skipHome={true} />
                     </Route>
                 </Switch>
             </section>

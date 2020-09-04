@@ -157,6 +157,16 @@ body.light a{
     margin: 10px 10px 10px 0;
 }
 
+.indexPage li p {
+    font-size:0.8em;
+    color: #666;
+}
+
+.dark .indexPage li p {
+    font-size:0.8em;
+    color: #666;
+}
+
 /* --- end main --- */
 
 /* --- Button --- */
