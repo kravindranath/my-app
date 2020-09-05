@@ -223,6 +223,9 @@ body.light a{
     .showHide{
         display: none;
     }
+    .nav.hide{
+        left: 0;
+    }
 }
 
 /* --- Media queries mobile --- */
