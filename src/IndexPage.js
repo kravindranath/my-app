@@ -8,14 +8,14 @@ var pageConfig = [
         desc : 'Home Page'
     },
     {
+        to   : '/pages/todoapp',
+        text : "To-do's",
+        desc : 'App to make a to-do list using checkboxes'
+    },
+    {
         to   : '/pages/passwordstrength',
         text : 'Password Strength',
         desc : 'Simple App to check password strength'
-    },
-    {
-        to   : '/pages/todoapp',
-        text : 'To-dos',
-        desc : 'App to make a to-do list using checkboxes'
     }
 ];
 

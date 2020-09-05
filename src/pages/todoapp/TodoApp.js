@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 import _get from 'lodash/get'
 import _cloneDeep from 'lodash/cloneDeep'
 import _map from 'lodash/map'
+import _find from 'lodash/find'
 import _remove from 'lodash/remove'
 import _filter from 'lodash/filter'
 import Todos from './Todos'
@@ -93,14 +94,24 @@ class TodoApp extends React.Component {
 		this.updateTodosState(inputVal);
 	}
 
+	avoidDuplicate(inputVal, currTodos){
+		var duplicateItem = _find(currTodos, { name : inputVal });
+		if(duplicateItem) {
+			return false;
+		}
+		return true;
+	}
+
 	onClickAdd() {
 		var inputVal = _get(this, 'textInput.current.value', ''),
 			currTodos = _cloneDeep(this.state.todos),
-			todo = inputVal && this.createTodo(this.stripHtml(inputVal));
+			todo = inputVal && this.createTodo(this.stripHtml(inputVal)),
+			shouldUpdate = this.avoidDuplicate(inputVal, currTodos)
 
-		if (todo) {
+		if (todo && shouldUpdate) {
 			currTodos.push(todo);
 			this.updateLocalStorage(currTodos);
+			this.textInput.current.value = '';
 		}
 	}
 
