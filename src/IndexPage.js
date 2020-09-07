@@ -1,48 +1,36 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
-var pageConfig = [
-    {
-        to   : '/',
-        text : 'Home',
-        desc : 'Home Page'
-    },
-    {
-        to   : '/pages/todoapp',
-        text : "To-do's",
-        desc : 'App to make a to-do list using checkboxes'
-    },
-    {
-        to   : '/pages/passwordstrength',
-        text : 'Password Strength',
-        desc : 'Simple App to check password strength'
-    }
-];
+import routesConfig from './routesConfig';
 
 function IndexPage(props) {
-    let lists = [],
+    var lists = [],
+    list,
     skipHome = props.skipHome || false,
     skipDesc = props.skipDesc || false;
 
-    pageConfig.forEach((_elem,i) => {
-        let elem = _elem || {},
-        href = elem.to,
+
+    routesConfig.forEach((_elem,i) => {
+        var elem = _elem || {},
+        href = elem.path,
         text = elem.text,
         desc = elem.desc;
         if(skipHome && (href === '/')) {
-            elem = {};
+            console.log(elem, skipHome)
+            href = null;
         }
         if(skipDesc && (desc !== '')) {
             desc = null;
         }
 
-        let list = (
-            <li key={`l-${i}`}>
-                <Link to={href}>{text}</Link>
-                <p>{desc}</p>
-            </li>
-        );
-        elem.to && lists.push(list);
+        if(href) {
+            list = (
+                <li key={`l-${i}`}>
+                    <Link to={href}>{text}</Link>
+                    <p>{desc}</p>
+                </li>
+            );
+        }
+        lists.push(list);
     });
 
     return (
