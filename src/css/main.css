@@ -167,6 +167,15 @@ body.light a{
     color: #666;
 }
 
+/* Utility classes */
+.mar_0 { margin : 0; }
+.pad_0 { padding : 0; }
+.pad_0_10_0_10 { padding-left : 10px; padding-right : 10px; }
+.pad_5_10_5_10 { padding : 5px 10px; }
+.pad_10_0_10_0 { padding-top : 10px; padding-bottom : 10px; }
+.pad_10 { padding : 10px; }
+.pad_10_20 { padding : 10px 20px; }
+
 /* --- end main --- */
 
 /* --- Button --- */
@@ -214,6 +223,39 @@ body.light a{
 .light .toggleButton{
     background: #ececec;
     border: 1px solid #ccc;
+}
+
+.iconPlay{
+    width: 25px;
+    height: 25px;
+    font-size: 0.7em;
+    border-radius: 20px;
+    display: inline-block;
+    margin-right: 10px;
+    line-height: 25px;
+    text-indent: 8px;
+}
+.dark .iconPlay{
+    background: #666;
+}
+.light .iconPlay{
+    background: #ececec;
+}
+.iconPause{
+    width: 25px;
+    height: 25px;
+    font-size: 0.9em;
+    border-radius: 20px;
+    display: inline-block;
+    text-indent: 7px;
+    transform: rotate(90deg);
+    line-height: 25px;
+}
+.dark .iconPause{
+    background: #666;
+}
+.light .iconPause{
+    background: #ececec;
 }
 
 /* --- end button --- */

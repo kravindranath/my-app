@@ -1,0 +1,8 @@
+.audio-player h4{
+    margin: 0.8em 0;
+}
+
+.audio-player .text{
+    padding-left: 10px;
+    display: inline-block;
+}
