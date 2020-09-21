@@ -225,38 +225,7 @@ body.light a{
     border: 1px solid #ccc;
 }
 
-.iconPlay{
-    width: 25px;
-    height: 25px;
-    font-size: 0.7em;
-    border-radius: 20px;
-    display: inline-block;
-    margin-right: 10px;
-    line-height: 25px;
-    text-indent: 8px;
-}
-.dark .iconPlay{
-    background: #666;
-}
-.light .iconPlay{
-    background: #ececec;
-}
-.iconPause{
-    width: 25px;
-    height: 25px;
-    font-size: 0.9em;
-    border-radius: 20px;
-    display: inline-block;
-    text-indent: 7px;
-    transform: rotate(90deg);
-    line-height: 25px;
-}
-.dark .iconPause{
-    background: #666;
-}
-.light .iconPause{
-    background: #ececec;
-}
+
 
 /* --- end button --- */
 

@@ -13,8 +13,8 @@ import './todo.css';
 
 class TodoApp extends React.Component {
 
-	constructor(props) {
-		super(props)
+	constructor() {
+		super();
 		this.onClickAdd = this.onClickAdd.bind(this);
 		this.textInput = React.createRef();
 		this.onclickChkBox = this.onClickChkBox.bind(this);

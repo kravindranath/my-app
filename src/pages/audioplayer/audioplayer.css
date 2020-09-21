@@ -6,3 +6,76 @@
     padding-left: 10px;
     display: inline-block;
 }
+
+#audioPlayer{
+    width: 100%;
+}
+
+.audio-player .controls > div{
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 0.8em;
+}
+.audio-player .default-list li a{
+    cursor: pointer;
+    color: #333;
+}
+.audio-player .default-list li a:hover{
+    text-decoration: none;
+    filter: brightness(80%);
+}
+.audio-player .default-list li.play{
+    color: #555;
+}
+.dark .audio-player .default-list li.play{
+    color: #fff;
+}
+.dark .audio-player .default-list li{
+    color: #666;
+}
+.dark .audio-player .default-list li a{
+    cursor: pointer;
+    color: #ccc;
+}
+.iconMute{
+    font-size: 0.6em;
+    padding: 4px 8px;
+    background-color: #ececec;
+    display: inline-block;
+    margin-left: 10px;
+    font-weight: normal;
+}
+.dark .iconMute{
+    color: #ccc;
+    background-color: #777;
+}
+.iconMute.true{
+    text-decoration: line-through;
+}
+
+.iconPlay{
+    font-size: 0.8em;
+    font-family: serif;
+    font-weight: bold;
+    letter-spacing: 2px;
+    padding: 4px 3px 2px 6px;
+}
+.dark .iconPlay{
+    background: #444;
+}
+.light .iconPlay{
+    background: #ececec;
+}
+.iconPause{
+    font-size: 1em;
+    font-family: serif;
+    font-weight: bold;
+    letter-spacing: 2px;
+    padding: 2px 6px 2px 6px;
+}
+.dark .iconPause{
+    background: #666;
+}
+.light .iconPause{
+    background: #ececec;
+}
