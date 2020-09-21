@@ -170,11 +170,11 @@ class AudioPlayer extends React.Component {
 
                 return (
                     <li key={`li-${item.id}`} className={`${playClass} ${pauseClass}`}>
-                        <a>
+                        <div className="anchor">
                             {(!play) && <span className="iconPlay" onClick={me.playTrack.bind(me, item)}>&#9654;</span>}
                             {(play && !pause) && <span className="iconPause" onClick={me.pauseTrack.bind(me)}>||</span>}
                             <span className="text">{item.name}</span>
-                        </a>
+                        </div>
                     </li>
                 );
             });

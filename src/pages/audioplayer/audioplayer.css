@@ -16,11 +16,11 @@
     margin-right: 10px;
     font-size: 0.8em;
 }
-.audio-player .default-list li a{
+.audio-player .default-list li .anchor{
     cursor: pointer;
     color: #333;
 }
-.audio-player .default-list li a:hover{
+.audio-player .default-list li .anchor:hover{
     text-decoration: none;
     filter: brightness(80%);
 }
@@ -33,7 +33,7 @@
 .dark .audio-player .default-list li{
     color: #666;
 }
-.dark .audio-player .default-list li a{
+.dark .audio-player .default-list li .anchor{
     cursor: pointer;
     color: #ccc;
 }
