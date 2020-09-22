@@ -15,7 +15,6 @@ function IndexPage(props) {
         text = elem.text,
         desc = elem.desc;
         if(skipHome && (href === '/')) {
-            console.log(elem, skipHome)
             href = null;
         }
         if(skipDesc && (desc !== '')) {

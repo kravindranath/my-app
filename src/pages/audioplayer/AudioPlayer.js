@@ -142,7 +142,6 @@ class AudioPlayer extends React.Component {
         this.updateState(newState);
     }
     muteTrack() {
-        console.log('yes', this)
         var state = this.state || {},
             player = state.player,
             newState = {
