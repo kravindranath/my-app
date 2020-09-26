@@ -2,6 +2,7 @@
 import TodoApp from './pages/todoapp/TodoApp';
 import PasswordStrength from './pages/passwordstrength/PasswordStrength';
 import AudioPlayer from './pages/audioplayer/AudioPlayer';
+import ButtonGenerator from './pages/buttongenerator/ButtonGenerator';
 import IndexPage from './IndexPage';
 
 var routesConfig = [
@@ -30,6 +31,12 @@ var routesConfig = [
         desc : 'Simple App to check password strength',
         component: PasswordStrength
     },
+    {
+        path   : '/pages/buttongenerator',
+        text : 'CSS Buttons',
+        desc : 'Customizable buttons',
+        component: ButtonGenerator
+    }
 ];
 
 export default routesConfig;

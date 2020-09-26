@@ -1,0 +1,36 @@
+.row{
+    padding: 1rem 0.5rem;
+}
+
+.block{
+    padding: 1rem 0.5rem;
+}
+
+.left-block {
+    width: 58%;
+    background-color: #f9f9f9;
+}
+
+.right-block {
+    width: 38%;
+    background-color: #f9f9f9;
+
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.default-block{
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.noStyle{
+    border: 0;
+    background: none;
+    padding: 1rem 2rem;
+}
