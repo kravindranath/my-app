@@ -1,19 +1,32 @@
-import React, { createRef } from 'react';
-import RangeSlider from './RangeSlider';
+import React from 'react';
+import Slider from './Slider';
+import Button from './Button';
 
 import './default.css';
+
+const ATTR_MAP = {
+    'backgroundColor' : 'background-color',
+    'borderWidth' : 'border-width',
+    'borderStyle' : 'border-style',
+    'borderColor' : 'border-color',
+    'borderRadius' : 'border-radius'
+};
 
 class ButtonGenerator extends React.Component{
     constructor(){
         super();
-        this.onChangeHandler = this.onChangeHandler;
-        this.RangeSlider = null;
+        this.Slider = null;
         this.borderRef = React.createRef();
         this.backRef = React.createRef();
+        this.borderColorRef = React.createRef();
+        this.borderRadiusRef = React.createRef();
         this.state = {
             color: 'white',
             borderWidth: 0,
-            backgroundColor: 'black'
+            backgroundColor: 'gray',
+            borderStyle: 'solid',
+            borderColor: 'yellow',
+            borderRadius: '0px'
         }
     }
 
@@ -27,48 +40,100 @@ class ButtonGenerator extends React.Component{
 
     onChangeHandler(e){
         var borderWidthVal = this.borderRef.current.value,
-            backgroundVal = this.backRef.current.value;
-
-        console.log(borderWidthVal, backgroundVal);
+            backgroundVal = this.backRef.current.value,
+            borderColorVal = this.borderColorRef.current.value,
+            borderRadiusVal = this.borderRadiusRef.current.value;
 
         this.setState({
             borderWidth : borderWidthVal,
+            borderColor : borderColorVal,
+            borderRadius : borderRadiusVal,
             backgroundColor : backgroundVal
         })
     }
 
     render() {
-        var prop_border = 'borderWidth';
-        var prop_background = 'backgroundColor';
+
+var backgroundColor = this.state.backgroundColor,
+    color = this.state.color,
+    borderColor = this.state.borderColor,
+    borderStyle = this.state.borderStyle,
+    borderWidth = this.state.borderWidth,
+    borderRadius = this.state.borderRadius;
+
         return (
             <div className="default-block">
                 <div className="left-block">
                     <div className="row">
-                        <RangeSlider
+                        <Slider
+                            key="borderWidth"
+                            type="range"
                             myref={this.borderRef}
                             label={this.capitalize('borderWidth')}
-                            propName={prop_border}
-                            key="a"
                             onChangeHandler={this.onChangeHandler.bind(this)}
                             min={1}
-                            val={this.state.borderWidth}
-                            max={5}
+                            max={10}
+                            val={borderWidth}
                         />
                     </div>
                     <div className="row">
-                        <RangeSlider
+                        <Slider
+                            key="borderRadius"
+                            type="range"
+                            myref={this.borderRadiusRef}
+                            label={this.capitalize('borderRadius')}
+                            onChangeHandler={this.onChangeHandler.bind(this)}
+                            min={1}
+                            max={50}
+                            val={borderRadius}
+                        />
+                    </div>
+                    <div className="row">
+                        <Slider
+                            key="borderColor"
+                            type="color"
+                            myref={this.borderColorRef}
+                            label={this.capitalize('borderColor')}
+                            onChangeHandler={this.onChangeHandler.bind(this)}
+                        />
+                    </div>
+                    <div className="row">
+                        <Slider
+                            key="backgroundColor"
+                            type="color"
                             myref={this.backRef}
                             label={this.capitalize('backgroundColor')}
-                            propName={prop_background}
                             onChangeHandler={this.onChangeHandler.bind(this)}
-                            key="b"
-                            min={1}
-                            max={100}
                         />
                     </div>
                 </div>
                 <div className="right-block">
-                    <button className="noStyle" style={{...this.state}}>Button</button>
+                    <div className="row button-block">
+                        <Button className="noStyle"
+                            color={color}
+                            backgroundColor={backgroundColor}
+                            borderColor={borderColor}
+                            borderStyle={borderStyle}
+                            borderWidth={borderWidth}
+                            borderRadius={borderRadius}
+                        />
+                    </div>
+                    <div className="row code-block">
+                        <h3>CSS Style</h3>
+                        <code>
+                            <pre>
+                                {`
+.myButton {
+    ${ATTR_MAP['backgroundColor']} : ${backgroundColor};
+    ${ATTR_MAP['borderWidth']} : ${borderWidth}px;
+    ${ATTR_MAP['borderStyle']} : ${borderStyle};
+    ${ATTR_MAP['borderColor']} : ${borderColor};
+    ${ATTR_MAP['borderRadius']}  : ${borderRadius}px;
+}
+                                `}
+                            </pre>
+                        </code>
+                    </div>
                 </div>
             </div>
         );

@@ -4,22 +4,35 @@
 
 .block{
     padding: 1rem 0.5rem;
+    width: 100%;
+    display: block;
 }
 
+.right-block, .left-block {
+    padding: 1rem;
+    background-color: #f9f9f9;
+}
 .left-block {
     width: 58%;
-    background-color: #f9f9f9;
 }
 
 .right-block {
-    width: 38%;
-    background-color: #f9f9f9;
+    width: 36%;
+}
 
-    display: flex;
-    flex-direction: row;
+.dark .right-block,.dark .left-block {
+    background-color: #333;
+}
 
-    align-items: center;
-    justify-content: center;
+.button-block{
+    min-height: 100px;
+}
+
+.code-block code{
+    width: 100%;
+    display: block;
+    font-size: 1.2rem;
+    line-height: 1.4rem;
 }
 
 .default-block{
@@ -29,8 +42,24 @@
     justify-content: space-between;
 }
 
+.label{
+    margin-right: 20px;
+    font-size: 1rem;
+}
+
 .noStyle{
     border: 0;
     background: none;
     padding: 1rem 2rem;
+}
+
+
+@media only screen and (min-width: 0px) and (max-width: 749px) {
+    .default-block {
+        display: block;
+    }
+    .right-block, .left-block {
+        width: 100%;
+        margin-bottom: 4%;
+    }
 }
