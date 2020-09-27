@@ -9,7 +9,8 @@ const ATTR_MAP = {
     'borderWidth' : 'border-width',
     'borderStyle' : 'border-style',
     'borderColor' : 'border-color',
-    'borderRadius' : 'border-radius'
+    'borderRadius' : 'border-radius',
+    'width' : 'width'
 };
 
 class ButtonGenerator extends React.Component{
@@ -20,13 +21,15 @@ class ButtonGenerator extends React.Component{
         this.backRef = React.createRef();
         this.borderColorRef = React.createRef();
         this.borderRadiusRef = React.createRef();
+        this.widthRef = React.createRef();
         this.state = {
             color: 'white',
             borderWidth: 0,
             backgroundColor: 'gray',
             borderStyle: 'solid',
             borderColor: 'yellow',
-            borderRadius: '0px'
+            borderRadius: '0px',
+            width: '120px'
         }
     }
 
@@ -42,12 +45,14 @@ class ButtonGenerator extends React.Component{
         var borderWidthVal = this.borderRef.current.value,
             backgroundVal = this.backRef.current.value,
             borderColorVal = this.borderColorRef.current.value,
+            widthVal = this.widthRef.current.value,
             borderRadiusVal = this.borderRadiusRef.current.value;
 
         this.setState({
             borderWidth : borderWidthVal,
             borderColor : borderColorVal,
             borderRadius : borderRadiusVal,
+            width : widthVal,
             backgroundColor : backgroundVal
         })
     }
@@ -59,6 +64,7 @@ var backgroundColor = this.state.backgroundColor,
     borderColor = this.state.borderColor,
     borderStyle = this.state.borderStyle,
     borderWidth = this.state.borderWidth,
+    width = this.state.width,
     borderRadius = this.state.borderRadius;
 
         return (
@@ -69,9 +75,9 @@ var backgroundColor = this.state.backgroundColor,
                             key="borderWidth"
                             type="range"
                             myref={this.borderRef}
-                            label={this.capitalize('borderWidth')}
+                            label="Border Width"
                             onChangeHandler={this.onChangeHandler.bind(this)}
-                            min={1}
+                            min={0}
                             max={10}
                             val={borderWidth}
                         />
@@ -81,9 +87,9 @@ var backgroundColor = this.state.backgroundColor,
                             key="borderRadius"
                             type="range"
                             myref={this.borderRadiusRef}
-                            label={this.capitalize('borderRadius')}
+                            label="Border Radius"
                             onChangeHandler={this.onChangeHandler.bind(this)}
-                            min={1}
+                            min={0}
                             max={50}
                             val={borderRadius}
                         />
@@ -91,10 +97,22 @@ var backgroundColor = this.state.backgroundColor,
                     <div className="row">
                         <Slider
                             key="borderColor"
-                            type="color"
+                            type="Color"
                             myref={this.borderColorRef}
-                            label={this.capitalize('borderColor')}
+                            label="Border Color"
                             onChangeHandler={this.onChangeHandler.bind(this)}
+                        />
+                    </div>
+                    <div className="row">
+                        <Slider
+                            key="width"
+                            type="range"
+                            myref={this.widthRef}
+                            label="Width"
+                            onChangeHandler={this.onChangeHandler.bind(this)}
+                            min={120}
+                            max={250}
+                            val={width}
                         />
                     </div>
                     <div className="row">
@@ -102,7 +120,7 @@ var backgroundColor = this.state.backgroundColor,
                             key="backgroundColor"
                             type="color"
                             myref={this.backRef}
-                            label={this.capitalize('backgroundColor')}
+                            label="Background Color"
                             onChangeHandler={this.onChangeHandler.bind(this)}
                         />
                     </div>
@@ -111,6 +129,7 @@ var backgroundColor = this.state.backgroundColor,
                     <div className="row button-block">
                         <Button className="noStyle"
                             color={color}
+                            width={width}
                             backgroundColor={backgroundColor}
                             borderColor={borderColor}
                             borderStyle={borderStyle}
@@ -125,10 +144,11 @@ var backgroundColor = this.state.backgroundColor,
                                 {`
 .myButton {
     ${ATTR_MAP['backgroundColor']} : ${backgroundColor};
-    ${ATTR_MAP['borderWidth']} : ${borderWidth}px;
-    ${ATTR_MAP['borderStyle']} : ${borderStyle};
-    ${ATTR_MAP['borderColor']} : ${borderColor};
-    ${ATTR_MAP['borderRadius']}  : ${borderRadius}px;
+    ${ATTR_MAP['width']}            : ${width};
+    ${ATTR_MAP['borderWidth']}     : ${borderWidth}px;
+    ${ATTR_MAP['borderStyle']}     : ${borderStyle};
+    ${ATTR_MAP['borderColor']}     : ${borderColor};
+    ${ATTR_MAP['borderRadius']}    : ${borderRadius}px;
 }
                                 `}
                             </pre>

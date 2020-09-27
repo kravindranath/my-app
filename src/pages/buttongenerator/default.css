@@ -45,6 +45,9 @@
 .label{
     margin-right: 20px;
     font-size: 1rem;
+    display: inline-block;
+    width: 130px;
+    line-height: 1.2rem;
 }
 
 .noStyle{
@@ -59,7 +62,7 @@
         display: block;
     }
     .right-block, .left-block {
-        width: 100%;
+        width: 90%;
         margin-bottom: 4%;
     }
 }
