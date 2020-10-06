@@ -1,0 +1,16 @@
+.SearchBox{
+    width: 90%;
+}
+
+.SearchBox input[type=search]{
+    width: 80%;
+    padding: 1rem 1.5rem;
+    font-size: 1.5rem;
+    border: 1px solid #ececec;
+    margin-bottom: 20px;
+}
+
+.res-msg{
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+}

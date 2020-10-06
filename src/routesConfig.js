@@ -3,6 +3,7 @@ import TodoApp from './pages/todoapp/TodoApp';
 import PasswordStrength from './pages/passwordstrength/PasswordStrength';
 import AudioPlayer from './pages/audioplayer/AudioPlayer';
 import ButtonGenerator from './pages/buttongenerator/ButtonGenerator';
+import BooksPage from './pages/bookspage/BooksPage';
 import IndexPage from './IndexPage';
 
 var routesConfig = [
@@ -36,6 +37,12 @@ var routesConfig = [
         text : 'CSS Buttons',
         desc : 'Customizable buttons',
         component: ButtonGenerator
+    },
+    {
+        path   : '/pages/books',
+        text : 'Books',
+        desc : 'Google books',
+        component: BooksPage
     }
 ];
 
