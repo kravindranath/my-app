@@ -1,4 +1,5 @@
 import React from 'react';
+import Book from './Book';
 
 //https://www.googleapis.com/books/v1/volumes?q=harry+potter&callback=handleResponse&maxResults=40
 
@@ -58,11 +59,16 @@ class BooksPage extends React.Component {
         var totalItems = items.length;
 
         var renderMarkup = items.map((item)=>{
-            var { title, description } = { ...item.volumeInfo };
+            var book = new Book(item);
                 return (
-                    <div className="row">
-                        <strong>{title}</strong>
-                        <p>{description}</p>
+                    <div className="book" key={book.isbn_10}>
+                        <div className="img">
+                            <img loading="lazy" alt={book.title} src={book.imageSrc} />
+                        </div>
+                        <div className="desc">
+                            <p className="title">{book.title}</p>
+                            <p className="publishInfo">{book.publishInfo}</p>
+                        </div>
                     </div>
                 )
             });   
@@ -77,7 +83,9 @@ class BooksPage extends React.Component {
                     { hasKeyword &&
                        <div className="res-msg">{`Showing ${totalItems} results for '${searchTerm}'`}</div>
                     }
-                    {renderMarkup}
+                    <div className="row">
+                        {renderMarkup}
+                    </div>
                 </div>
             </div>
         );

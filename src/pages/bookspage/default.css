@@ -3,7 +3,7 @@
 }
 
 .SearchBox input[type=search]{
-    width: 80%;
+    width: 100%;
     padding: 1rem 1.5rem;
     font-size: 1.5rem;
     border: 1px solid #ececec;
@@ -15,5 +15,53 @@
     margin-bottom: 1rem;
 }
 .row{
+    display: flex;
     padding: 1rem;
+    flex-wrap: wrap;
+}
+.book{
+    padding: 10px;
+    border: 1px solid #ececec;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 0;
+    flex-basis: 100px;
+    margin: 0 10px 10px 10px;
+}
+.dark .book{
+    border: 1px solid #333;
+}
+.book .desc{
+    width: 100%;
+    display: block;
+}
+.book .desc .title{
+    font-size: 0.9rem;
+}
+.book .desc .publishInfo{
+    font-size: 0.7rem;
+    color: #666;
+}
+.book .img{
+    width: 100%;
+    display: block;
+    max-width: 110px;
+    margin: 0 auto;
+}
+.book img{
+    width: 100%;
+    margin: auto;
+}
+
+@media only screen and (max-width: 747px) and (min-width: 320px) {
+    .book{
+        flex-basis: 110px;
+        margin-right: 0;
+        margin-left: 0;
+        max-width: 110px;
+    }
+    .row{
+        padding: 0;
+        justify-content: space-evenly;
+    }
 }
