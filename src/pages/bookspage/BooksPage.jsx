@@ -1,25 +1,44 @@
 import React from 'react';
-import _debounce from 'lodash/debounce';
 
 //https://www.googleapis.com/books/v1/volumes?q=harry+potter&callback=handleResponse&maxResults=40
 
 import './default.css';
+
+var stripSpecialRegex = /\W+/gi;
+var stripHtmlRegex = /(<([^>]+)>)/gi;
 
 class BooksPage extends React.Component {
 
     constructor() {
         super();
         this.state = {
-            books: [],
+            items: [],
             searchTerm: ''
         }
         this.inpRef = React.createRef();
         this.onChangeHandler = this.onChangeHandler.bind(this);
         this.fetchBookData = this.fetchBookData.bind(this);
+        this.debTimer = null;
     }
 
     fetchBookData(searchTerm){
-        console.log('this called ', searchTerm);
+        var me = this;
+        var cleanSearch = searchTerm.replace(stripHtmlRegex, "");
+        cleanSearch = cleanSearch.replace(stripSpecialRegex, '+');
+        var apiUrl = `https://www.googleapis.com/books/v1/volumes?q=${cleanSearch}&maxResults=40`
+
+        if(this.debTimer !== null){
+            clearTimeout(this.debTimer);
+        }
+        this.debTimer = setTimeout(function(){
+            fetch(apiUrl).then((res)=>{
+                return res.json();
+            }).then((data)=>{
+                me.setState({
+                    items: (data && data.items) || []
+                })
+            })
+        }, 1000)
     }
 
     onChangeHandler(evt){
@@ -34,7 +53,20 @@ class BooksPage extends React.Component {
     render() {
         var searchTerm = this.state.searchTerm;
         var hasKeyword =  (this.state.searchTerm.length > 0);
-    
+
+        var items = this.state.items || [];
+        var totalItems = items.length;
+
+        var renderMarkup = items.map((item)=>{
+            var { title, description } = { ...item.volumeInfo };
+                return (
+                    <div className="row">
+                        <strong>{title}</strong>
+                        <p>{description}</p>
+                    </div>
+                )
+            });   
+
         return (
             <div>
                 <h1>Books</h1>
@@ -45,7 +77,7 @@ class BooksPage extends React.Component {
                     { hasKeyword &&
                        <div className="res-msg">{`Showing results for '${searchTerm}'`}</div>
                     }
-                    Results
+                    {renderMarkup}
                 </div>
             </div>
         );
