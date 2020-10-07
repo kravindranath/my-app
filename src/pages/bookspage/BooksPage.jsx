@@ -75,7 +75,7 @@ class BooksPage extends React.Component {
                 </div>
                 <div className="results">
                     { hasKeyword &&
-                       <div className="res-msg">{`Showing results for '${searchTerm}'`}</div>
+                       <div className="res-msg">{`Showing ${totalItems} results for '${searchTerm}'`}</div>
                     }
                     {renderMarkup}
                 </div>
